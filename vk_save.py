@@ -1,13 +1,16 @@
 import vk_api
 import json
 
+# Python 2 and 3
+from builtins import input
+
 VK_EMAIL = ''
 VK_ID = ''
 VK_PASS = ''
 
 
 def get_sms_code():
-    code = raw_input('input code from sms\n')
+    code = input('input code from sms\n')
     print('code received: {}'.format(code))
     return code
 
