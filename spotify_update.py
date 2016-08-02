@@ -1,6 +1,10 @@
+# for python2
+from __future__ import unicode_literals
+
 import time
 import json
 import spotify
+
 
 # NOTE: you should have your binary libspotify key in this folder
 # and libspotify installed
