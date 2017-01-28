@@ -31,6 +31,7 @@ with open('songs.json', 'r') as f:
     songs = json.load(f)
 
 spotify_tracks = []
+rejected_tracks = []
 for i, song in enumerate(songs):
     print('Searching {}/{} - {} {}'.format(
         i, len(songs),
@@ -43,10 +44,17 @@ for i, song in enumerate(songs):
         spotify_tracks.append(track)
         print('Found')
     else:
+        rejected_tracks.append(track)
         print('Not found')
-
+        
+# Successfuls
 print('Adding tracks...')
 playlist.add_tracks(spotify_tracks)
+
+# Rejected
+with open('notfound.json', 'w') as f:
+    json.dump(rejected_tracks, f)
+
 retries = 10
 while retries:
     session.process_events()
